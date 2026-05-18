@@ -4,7 +4,7 @@
 ## Features
 - Offline LLM (Gemma via Ollama)
 - RAG (uses study material)
-- Multilingual (English, Hindi, Kannada)
+- Multilingual (English, Hindi)
 - Student memory
 
 ## Setup
