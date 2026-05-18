@@ -1,0 +1,50 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="psycopg2" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="account.models.UserDetails.*" />
+          <option value="account.models.HostDetails.objects" />
+          <option value="account.views.send_sms_otp.delay" />
+          <option value="account.models.UserOtp.objects" />
+          <option value="track.models.Track.objects" />
+          <option value="track.models.TrackRequests.objects" />
+          <option value="account.models.RestoBarDetails.objects" />
+          <option value="playlist.models.PlaylistDetails.objects" />
+          <option value="slot.models.SlotDetails.objects" />
+          <option value="playlist.models.SlotPlaylistMap.objects" />
+          <option value="track.TrackCategory.objects" />
+          <option value="track.models.Category.objects" />
+          <option value="track.models.PlaylistTrackMap.objects" />
+          <option value="track.models.TrackRequestPaymentMap.objects" />
+          <option value="payment.models.Payments.objects" />
+          <option value="track.models.TopTracks.objects" />
+          <option value="payment.models.Transactions.objects" />
+          <option value="account.models.RestoBarHostMap.objects" />
+          <option value="payment.models.PaymentGateway.objects" />
+          <option value="track.models.Pricing.objects" />
+          <option value="razorpay.client.Client.order" />
+          <option value="razorpay.client.Client.utility" />
+          <option value="account.models.SpotifyDetails.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
