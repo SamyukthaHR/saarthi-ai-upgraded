@@ -118,11 +118,29 @@ with st.sidebar:
 
     st.markdown("### 🌐 Language")
 
-    language = st.selectbox(
-        "Language",
-        ["English", "Hindi", "Kannada"],
-        label_visibility="collapsed"
-    )
+    language = st.sidebar.selectbox(
+    "Language",
+    ["English", "Hindi"]
+)
+
+    st.divider()
+
+    uploaded_file = st.sidebar.file_uploader(
+    "Upload PDF",
+    type=["pdf"]
+)
+
+    if uploaded_file:
+        files = {
+            "file": uploaded_file.getvalue()
+        }
+
+        requests.post(
+            "http://127.0.0.1:8000/upload-pdf",
+            files=files
+        )
+
+        st.sidebar.success("PDF Uploaded")
 
     st.divider()
 
@@ -143,80 +161,6 @@ st.markdown(
 )
 
 st.write("")
-
-# ---------------- SUBJECTS ----------------
-# c1, c2, c3, c4 = st.columns(4)
-
-# subjects = [
-#     ("🧪", "Science"),
-#     ("🧮", "Math"),
-#     ("📖", "English"),
-#     ("🌍", "GK")
-# ]
-
-# cols = [c1, c2, c3, c4]
-
-# for col, subject in zip(cols, subjects):
-
-#     with col:
-
-#         st.markdown(
-#             f"""
-#             <div class='subject-card'>
-#                 <div style='font-size:40px'>
-#                     {subject[0]}
-#                 </div>
-
-#                 <h3>{subject[1]}</h3>
-#             </div>
-#             """,
-#             unsafe_allow_html=True
-#         )
-
-# ---------------- SUBJECTS ----------------
-# c1, c2, c3, c4 = st.columns(4)
-
-# subjects = [
-#     ("🧪", "Science"),
-#     ("🧮", "Math"),
-#     ("📖", "English"),
-#     ("🌍", "GK")
-# ]
-
-# for col, (icon, title) in zip([c1, c2, c3, c4], subjects):
-
-#     with col:
-
-#         st.markdown(
-#             f"""
-#             <div style="
-#             background: rgba(255,255,255,0.04);
-#             border-radius: 24px;
-#             padding: 40px 20px;
-#             text-align: center;
-#             border: 1px solid rgba(255,255,255,0.08);
-#             min-height: 180px;
-#             ">
-
-#             <div style="
-#             font-size:48px;
-#             margin-bottom:20px;
-#             ">
-#             {icon}
-#             </div>
-
-#             <div style="
-#             font-size:28px;
-#             font-weight:700;
-#             color:white;
-#             ">
-#             {title}
-#             </div>
-
-#             </div>
-#             """,
-#             unsafe_allow_html=True
-#         )
 
 # ---------------- SUBJECTS ----------------
 
@@ -272,7 +216,6 @@ margin-bottom:10px;
             }
 
             question = starter_prompts[title]
-
             st.session_state.messages.append({
                 "role": "user",
                 "content": question
@@ -351,20 +294,6 @@ if question:
     with st.spinner("Saarthi is thinking..."):
 
         try:
-            # question = st.text_input("Ask your question")
-            # if st.button("Ask"):
-            # response = requests.post(
-            #     "http://localhost:8000/chat",
-            #     json={
-            #         "user_id": "user_id",
-            #         "question": question,
-            #         "level": level,
-            #         "language": language
-            #     }
-            # )
-            # st.write("### Answer")
-            # st.write(response.json()["answer"])
-
             response = requests.post(
                 "http://localhost:8000/chat",
                 json={

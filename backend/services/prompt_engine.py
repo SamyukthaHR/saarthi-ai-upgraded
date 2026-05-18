@@ -1,5 +1,5 @@
 
-def build_prompt(question, level, language, context, history):
+def build_prompt(question, level, language, history):
     return f'''
 You are a friendly AI tutor for rural students.
 
@@ -9,10 +9,7 @@ Student Level: {level}
 Previous Questions:
 {history}
 
-Use the context below to answer accurately.
 
-Context:
-{context}
 
 Explain simply using real-life examples.
 
